@@ -358,6 +358,7 @@ public class UIScrollViewRolling : UIWidgetContainer
 		{
 			UnityEngine.Object obj = GameObject.Instantiate(_item);
 			item = (GameObject)obj;
+			item.SetActive(true);
 			item.transform.parent = this.transform;
 			item.transform.localScale = new Vector3(1, 1, 1);
 		}
@@ -366,10 +367,7 @@ public class UIScrollViewRolling : UIWidgetContainer
 			item = tempItems[0];
 			tempItems.Remove(item);
 		}
-		
 		item.name = "item_" + idx;
-		item.SetActive(false);
-		item.SetActive(true);
 
 		if(mScrollView.movement == UIScrollView.Movement.Horizontal)
 			item.transform.localPosition = new Vector3(idx * _itemSize, 0, 0);
@@ -382,6 +380,5 @@ public class UIScrollViewRolling : UIWidgetContainer
 	{
 		item.name = "temp_" + tempItems.Count;
 		tempItems.Add(item);
-		//item.SetActive(false);
 	}
 }
